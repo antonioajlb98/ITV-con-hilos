@@ -37,4 +37,3 @@ public class Controller {
         System.out.println("Todos los trabajadores han terminado");
         System.out.println("La ITV ha inspeccionado un total de " + linea1.getCochesInspeccionados() + " coches");
     }
-}
