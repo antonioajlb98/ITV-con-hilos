@@ -10,16 +10,19 @@ import java.util.List;
 public class Controlador {
     public static void main(String[] args) {
         Itv itv = new Itv();
-        itv.addCoche(new Coche("Seat", "Ibiza", "1000"));
-        itv.addCoche(new Coche("Seat", "Leon", "2000"));
-        itv.addCoche(new Coche("Seat", "Toledo", "3000"));
-        itv.addCoche(new Coche("Seat", "Arona", "4000"));
-        itv.addCoche(new Coche("Seat", "Ateca", "7000"));
+        Itv itv2 = new Itv();
+        Itv itv3 = new Itv();
+        Thread itv2Thread = new Thread(itv2);
+        Thread itv3Thread = new Thread(itv3);
+        Thread itvThread = new Thread(itv);
+        itvThread.start();
+        itv2Thread.start();
+        itv3Thread.start();
 
         List<Thread> inspeccionadores = new ArrayList<>();
         Thread inspeccionador1 = new Thread(new Trabajador("Juan", itv));
-        Thread inspeccionador2 = new Thread(new Trabajador("Pedro", itv));
-        Thread inspeccionador3 = new Thread(new Trabajador("Luis", itv));
+        Thread inspeccionador2 = new Thread(new Trabajador("Pedro", itv2));
+        Thread inspeccionador3 = new Thread(new Trabajador("Luis", itv3));
         inspeccionadores.add(inspeccionador1);
         inspeccionadores.add(inspeccionador2);
         inspeccionadores.add(inspeccionador3);
