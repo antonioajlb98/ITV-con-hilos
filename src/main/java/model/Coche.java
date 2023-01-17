@@ -2,31 +2,26 @@ package model;
 
 public class Coche {
 
-    private String marca;
-    private String modelo;
+    private Integer matricula;
     private String tiempoInspeccion;
 
-    public Coche(String marca, String modelo, String tiempoInspeccion) {
-        this.marca = marca;
-        this.modelo = modelo;
+    public Coche( String tiempoInspeccion, Integer matricula) {
         this.tiempoInspeccion = tiempoInspeccion;
+        this.matricula = matricula;
     }
     public Coche() {
     }
-    public String getMarca() {
-        return marca;
+
+    public Integer getMatricula() {
+        return matricula;
     }
-    public String getModelo() {
-        return modelo;
+
+    public void setMatricula(Integer matricula) {
+        this.matricula = matricula;
     }
+
     public String getTiempoInspeccion() {
         return tiempoInspeccion;
-    }
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
     }
     public void setTiempoInspeccion(String tiempoInspeccion) {
         this.tiempoInspeccion = tiempoInspeccion;
