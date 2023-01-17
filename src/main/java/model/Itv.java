@@ -45,7 +45,7 @@ public class Itv implements Runnable {
         }
     }
     public boolean sacarCoche() {
-        if (numeroCoches > 0) {
+        if (hayCoches()) {
             numeroCoches--;
             cochesInspeccionados++;
             return true;
