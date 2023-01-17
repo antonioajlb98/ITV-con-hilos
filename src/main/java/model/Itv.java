@@ -2,14 +2,21 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Itv implements Runnable {
     private Coche coche;
     private static Integer numeroCoches=10;
+    private static Integer cochesInspeccionados=0;
 
 
     public Itv() {
     }
+
+    public Integer getCochesInspeccionados() {
+        return cochesInspeccionados;
+    }
+
 
     public Coche getCoche() {
         return coche;
@@ -24,9 +31,10 @@ public class Itv implements Runnable {
     }
 
     public Coche generaCoches() {
+        Random random = new Random();
             Coche aux = new Coche();
-            aux.setMatricula((int) (Math.random() * 10000));
-            aux.setTiempoInspeccion(String.valueOf((int) (Math.random() * 10000)));
+            aux.setMatricula(aux.generarMatricula());
+            aux.setTiempoInspeccion(random.nextInt(7001)+1000+"");
             return aux;
     }
     public synchronized boolean hayCoches(){
@@ -39,6 +47,7 @@ public class Itv implements Runnable {
     public boolean sacarCoche() {
         if (numeroCoches > 0) {
             numeroCoches--;
+            cochesInspeccionados++;
             return true;
         }else{
             return false;
